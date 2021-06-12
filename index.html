@@ -160,14 +160,16 @@
 
         //Select Food images
         let img_modal = document.querySelector(".img-modal");
-        let img_opener = document.querySelector(".dish img");
-        img_opener.onclick = function openImgModal(evt) {
-            evt.preventDefault()
-            let elem = evt.target
-            let img_source = elem.getAttribute("src");
-            document.querySelector("#view-image").setAttribute("src", img_source);
-            img_modal.classList.add('open');
-        }
+        let img_openers = document.querySelectorAll(".dish img");
+        img_openers.forEach(function(img_opener){
+            img_opener.onclick = function openImgModal(evt) {
+                evt.preventDefault();
+                let elem = evt.target
+                let img_source = elem.getAttribute("src");
+                document.querySelector("#view-image").setAttribute("src", img_source);
+                img_modal.classList.add('open');
+            }
+        });
         img_modal.onclick = function closeImgModal(evt) {
             evt.preventDefault();
             img_modal.classList.remove('open');
